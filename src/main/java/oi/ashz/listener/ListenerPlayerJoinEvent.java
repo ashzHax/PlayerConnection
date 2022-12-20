@@ -27,7 +27,7 @@ public class ListenerPlayerJoinEvent implements Listener {
                 ChatColor.YELLOW+(int)e.getPlayer().getLocation().getX()+
                 ChatColor.GRAY+","+
                 ChatColor.YELLOW+(int)e.getPlayer().getLocation().getY()+
-                ChatColor.GRAY+""+
+                ChatColor.GRAY+","+
                 ChatColor.YELLOW+(int)e.getPlayer().getLocation().getZ()+
                 ChatColor.GRAY+")");
     }

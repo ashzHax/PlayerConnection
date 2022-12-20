@@ -13,17 +13,22 @@ public class ListenerPlayerQuitEvent implements Listener {
         this.plugin = p;
     }
     @EventHandler
-    public boolean LPlayerQuitEvent(PlayerQuitEvent e) {
+    public void LPlayerQuitEvent(PlayerQuitEvent e) {
         e.setQuitMessage(null);
-        Message.sendBroadcast(plugin, Message.warning+
+        Message.sendNonAdminBroadcast(plugin, Message.notification+
                 ChatColor.AQUA+e.getPlayer().getName()+
                 ChatColor.GRAY+"님이 서버에서 나가셨습니다");
-        Message.sendAdminMessage(plugin, Message.notification+
-                ChatColor.GRAY+"Player Quit Location:"+
-                ChatColor.GRAY+"\n    - world: "+ChatColor.YELLOW+e.getPlayer().getWorld().getName()+
-                ChatColor.GRAY+"\n    - x: "+ChatColor.YELLOW+e.getPlayer().getLocation().getX()+
-                ChatColor.GRAY+"\n    - y: "+ChatColor.YELLOW+e.getPlayer().getLocation().getY()+
-                ChatColor.GRAY+"\n    - z: "+ChatColor.YELLOW+e.getPlayer().getLocation().getZ());
-        return true;
+        Message.sendAdminBroadcast(plugin, Message.notification+
+                ChatColor.AQUA+e.getPlayer().getName()+
+                ChatColor.GRAY+"님이 서버에서 나가셨습니다"+
+                ChatColor.GRAY+"("+
+                ChatColor.YELLOW+e.getPlayer().getWorld().getName()+
+                ChatColor.GRAY+","+
+                ChatColor.YELLOW+(int)e.getPlayer().getLocation().getX()+
+                ChatColor.GRAY+","+
+                ChatColor.YELLOW+(int)e.getPlayer().getLocation().getY()+
+                ChatColor.GRAY+""+
+                ChatColor.YELLOW+(int)e.getPlayer().getLocation().getZ()+
+                ChatColor.GRAY+")");
     }
 }

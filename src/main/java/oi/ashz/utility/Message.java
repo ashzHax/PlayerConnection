@@ -25,10 +25,19 @@ public class Message {
         plugin.getServer().broadcastMessage(msg);
     }
 
-    public static void sendAdminMessage(PlayerConnection plugin, String msg) {
+    public static void sendAdminBroadcast(PlayerConnection plugin, String msg) {
         Collection<? extends Player> playerCollection = plugin.getServer().getOnlinePlayers();
         for(Player p : playerCollection) {
             if(p.isOp()) { // TODO: need a better permission checking code
+                p.sendMessage(msg);
+            }
+        }
+    }
+
+    public static void sendNonAdminBroadcast(PlayerConnection plugin, String msg) {
+        Collection<? extends Player> playerCollection = plugin.getServer().getOnlinePlayers();
+        for(Player p : playerCollection) {
+            if(!p.isOp()) { // TODO: need a better permission checking code
                 p.sendMessage(msg);
             }
         }

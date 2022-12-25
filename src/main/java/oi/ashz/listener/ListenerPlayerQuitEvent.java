@@ -20,7 +20,7 @@ public class ListenerPlayerQuitEvent implements Listener {
                 ChatColor.GRAY+"님이 서버에서 나가셨습니다");
         Message.sendAdminBroadcast(plugin, Message.notification+
                 ChatColor.AQUA+e.getPlayer().getName()+
-                ChatColor.GRAY+"님이 서버에서 나가셨습니다"+
+                ChatColor.GRAY+"님이 서버에서 나가셨습니다 "+
                 ChatColor.GRAY+"("+
                 ChatColor.YELLOW+e.getPlayer().getWorld().getName()+
                 ChatColor.GRAY+","+
